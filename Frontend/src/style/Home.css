@@ -1,0 +1,131 @@
+.container {
+    padding-left: 1rem; /* px-4 */
+    padding-right: 1rem; /* px-4 */
+    margin-left: auto; /* mx-auto */
+    margin-right: auto; /* mx-auto */
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding-left: 2rem; /* lg:px-8 */
+        padding-right: 2rem; /* lg:px-8 */
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: 72rem; /* xl:max-w-6xl */
+    }
+}
+
+.img-box {
+    width: 2.25rem; /* w-9 */
+    height: 2.25rem; /* h-9 */
+    border-radius: 0.5rem; /* rounded-lg */
+    background-color: #3f3f46; /* bg-zinc-700 */
+    overflow: hidden; /* overflow-hidden */
+}
+
+.img-cover {
+    width: 100%; /* w-full */
+    height: 100%; /* h-full */
+    object-fit: cover; /* object-cover */
+}
+
+.text-zinc-400 {
+    color: #a1a1aa; /* text-zinc-400 */
+}
+
+.headline-1 {
+    max-width: max-content; /* max-w-max */
+    background: -webkit-linear-gradient(0deg, #fafafa, #a1a1aa); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3rem; /* text-5xl */
+    line-height: 1.25; /* leading-tight */
+    font-weight: 600; /* font-semibold */
+}
+
+@media (min-width: 1024px) {
+    .headline-1 {
+        font-size: 55px; /* lg:text-[55px] */
+        line-height: 1.15; /* lg:leading-[1.15] */
+    }
+}
+
+.flex {
+    display: flex;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.gap-3 {
+    gap: 0.75rem; /* gap-3 */
+}
+
+.gap-1-5 {
+    gap: 0.375rem; /* gap-1.5 */
+}
+
+.text-sm {
+    font-size: 0.875rem; /* text-sm */
+}
+
+.tracking-wide {
+    letter-spacing: 0.05em; /* tracking-wide */
+}
+
+.relative {
+    position: relative; /* relative */
+}
+
+.w-2 {
+    width: 0.5rem; /* w-2 */
+}
+
+.h-2 {
+    height: 0.5rem; /* h-2 */
+}
+
+.rounded-full {
+    border-radius: 9999px; /* rounded-full */
+}
+
+.bg-green-500 {
+    background-color: #22c55e; /* bg-green-500 */
+}
+
+.animate-ping {
+    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite; /* animate-ping */
+}
+
+@keyframes ping {
+    75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+.max-w-15ch {
+    max-width: 15ch; /* max-w-[15ch] */
+}
+
+.sm-max-w-20ch {
+    max-width: 20ch; /* sm:max-w-[20ch] */
+}
+
+@media (min-width: 640px) {
+    .sm-max-w-20ch {
+        max-width: 20ch; /* sm:max-w-[20ch] */
+    }
+}
+
+.w-full {
+    width: 100%; /* w-full */
+}
+
+.rounded-60px{
+    border-radius: 60px; /* rounded-60px */
+}

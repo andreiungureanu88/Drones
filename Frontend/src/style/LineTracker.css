@@ -1,0 +1,450 @@
+.page-content {
+  padding: 1rem;
+  padding-top: 5rem; /* Adăugare spațiu suplimentar pentru header */
+  background-color: #18181b;
+  color: #f4f4f5;
+  min-height: 100vh;
+}
+
+.line-tracker-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: #27272a;
+  border-radius: 0.75rem;
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.05);
+}
+
+/* Stiluri pentru erori */
+.error-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  background-color: rgba(220, 38, 38, 0.2);
+  border-left: 4px solid #dc2626;
+  border-radius: 0.5rem;
+}
+
+.error-message {
+  margin: 0;
+  color: #fca5a5;
+}
+
+.error-close {
+  background: none;
+  border: none;
+  color: #fca5a5;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.error-close:hover {
+  color: #f4f4f5;
+}
+
+/* Bară de stare */
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #18181b;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1.5rem;
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.05);
+}
+
+.connection-status {
+  display: flex;
+  align-items: center;
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.connected {
+  background-color: #22c55e;
+}
+
+.connecting {
+  background-color: #eab308;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+.mode-indicator {
+  padding: 0.25rem 0.75rem;
+  background-color: rgba(244, 244, 245, 0.1);
+  border-radius: 0.75rem;
+}
+
+.mode-label {
+  margin-right: 0.5rem;
+  opacity: 0.7;
+}
+
+.battery-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.battery-icon {
+  font-size: 1.2rem;
+}
+
+.battery-text {
+  font-weight: bold;
+}
+
+/* Noul layout simplificat */
+.simplified-layout {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Container cameră */
+.camera-container {
+  flex: 3;
+  background-color: #18181b;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.05);
+}
+
+.camera-feed-wrapper {
+  position: relative;
+  width: 100%;
+  height: 360px;
+}
+
+.main-feed {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: #0f0f0f;
+  border-radius: 0.375rem;
+}
+
+/* Overlay pentru camera cu contur roz și centru */
+.camera-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.center-point {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #22c55e;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.7);
+}
+
+.sensitivity-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 7px solid rgba(255, 0, 255, 0.7);
+  border-radius: 0.375rem;
+  box-sizing: border-box;
+}
+
+/* Container senzori */
+.sensors-container {
+  flex: 2;
+  background-color: #18181b;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.feed-title, .sensors-title {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  color: #f4f4f5;
+}
+
+/* Nouă linie de senzori orizontală */
+.sensors-horizontal-row {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.sensor-item {
+  flex: 1;
+  background-color: #27272a;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.sensor-title {
+  margin-bottom: 0.5rem;
+  color: #f4f4f5;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Setăm dimensiunile exacte pentru a păstra proporțiile originale ale senzorilor */
+.sensor-feed {
+  width: 100%;
+  /* Aspect ratio 160:360 (width:height) din serverul Python */
+  aspect-ratio: 160/360;
+  object-fit: contain; /* Păstrează proporțiile exacte */
+  background-color: #0f0f0f;
+  border-radius: 0.375rem;
+  margin-bottom: 0.5rem;
+}
+
+.sensor-feed-placeholder {
+  width: 100%;
+  aspect-ratio: 160/360; /* Păstrează același aspect ratio ca și sensor-feed */
+  background-color: #0f0f0f;
+  border-radius: 0.375rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sensor-overlay {
+  color: rgba(244, 244, 245, 0.5);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.sensor-value {
+  background-color: #18181b;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  color: #f4f4f5;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.active-sensor {
+  background-color: rgba(34, 197, 94, 0.3);
+  box-shadow: 0 0 5px rgba(34, 197, 94, 0.5);
+}
+
+/* Placeholder pentru feed-uri */
+.feed-placeholder {
+  width: 100%;
+  height: 360px;
+  background-color: #0f0f0f;
+  border-radius: 0.375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feed-overlay {
+  padding: 1rem;
+  text-align: center;
+  color: rgba(244, 244, 245, 0.5);
+  font-style: italic;
+}
+
+/* Panou de control */
+.control-panel {
+  background-color: #18181b;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.05);
+}
+
+.control-buttons-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.control-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 150px;
+  font-weight: bold;
+  color: white;
+}
+
+.control-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.control-btn:active:not(:disabled) {
+  transform: scale(0.95) translateY(0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.control-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.start-btn {
+  background-color: #3b82f6;
+}
+
+.start-btn:hover:not(:disabled) {
+  background-color: #2563eb;
+}
+
+.auto-btn {
+  background-color: #8b5cf6;
+}
+
+.auto-btn:hover:not(:disabled) {
+  background-color: #7c3aed;
+}
+
+.land-btn {
+  background-color: #ef4444;
+}
+
+.land-btn:hover:not(:disabled) {
+  background-color: #dc2626;
+}
+
+/* Panou telemetrie */
+.telemetry-panel {
+  background-color: #18181b;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.05);
+}
+
+.telemetry-title {
+  margin-bottom: 0.75rem;
+  color: #f4f4f5;
+  font-size: 1.1rem;
+}
+
+.telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.telemetry-item {
+  background-color: #27272a;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.05);
+}
+
+.telemetry-label {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+  color: rgba(244, 244, 245, 0.7);
+}
+
+.telemetry-value {
+  font-weight: bold;
+  color: #f4f4f5;
+}
+
+/* Panou instrucțiuni */
+.instructions-panel {
+  background-color: #18181b;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.05);
+}
+
+.instructions-title {
+  margin-bottom: 0.75rem;
+  color: #f4f4f5;
+  font-size: 1.1rem;
+}
+
+.instruction-text {
+  color: rgba(244, 244, 245, 0.7);
+  line-height: 1.6;
+}
+
+.key-instructions {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.key-instructions li {
+  margin-bottom: 0.5rem;
+}
+
+.key-highlight {
+  background-color: rgba(244, 244, 245, 0.1);
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.375rem;
+  font-family: monospace;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .simplified-layout {
+    flex-direction: column;
+  }
+  
+  .camera-feed-wrapper {
+    height: 300px;
+  }
+  
+  .feed-placeholder {
+    height: 300px;
+  }
+  
+  .telemetry-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .sensors-row {
+    flex-direction: row;
+  }
+  
+  .sensor-item {
+    height: 120px;
+  }
+}

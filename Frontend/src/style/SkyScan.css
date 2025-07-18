@@ -1,0 +1,1690 @@
+.skyscan-container {
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  .skyscan-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .skyscan-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  /* Video container styles */
+  .video-container {
+    flex: 1;
+    background-color: rgba(244, 244, 245, 0.05);
+    border-radius: 1rem;
+    box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.05);
+    overflow: hidden;
+    min-height: 320px;
+    position: relative;
+  }
+  
+  .video-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    color: rgba(244, 244, 245, 0.5);
+  }
+  
+  .video-placeholder .material-symbols-rounded {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Carousel container styles */
+  .carousel-container {
+    flex: 1;
+    background-color: rgba(244, 244, 245, 0.1);
+    border-radius: 1rem;
+    box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.05);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .carousel-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .carousel-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+  }
+  
+  .carousel-nav-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: grid;
+    place-items: center;
+    background-color: rgba(244, 244, 245, 0.1);
+    border-radius: 0.75rem;
+    box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.02);
+    backdrop-filter: blur(2rem);
+    transition: transform 0.2s, background-color 0.2s;
+  }
+  
+  .carousel-nav-btn:hover {
+    background-color: rgba(244, 244, 245, 0.15);
+  }
+  
+  .carousel-nav-btn:active {
+    transform: scale(0.95);
+  }
+  
+  .carousel-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    padding: 0 1rem;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  
+  .person-image {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+  
+  .person-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .person-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .person-name-input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-color: rgba(244, 244, 245, 0.05);
+    border: 1px solid rgba(244, 244, 245, 0.1);
+    border-radius: 0.5rem;
+    color: #f4f4f5;
+    transition: border-color 0.2s;
+  }
+  
+  .person-name-input:focus {
+    outline: none;
+    border-color: rgba(244, 244, 245, 0.3);
+  }
+  
+  .add-person-btn {
+    width: 100%;
+    background-color: rgba(244, 244, 245, 0.1);
+    color: #f4f4f5;
+    transition: background-color 0.2s;
+  }
+  
+  .add-person-btn:hover {
+    background-color: rgba(244, 244, 245, 0.15);
+  }
+  
+  .carousel-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    gap: 0.5rem;
+  }
+  
+  .carousel-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: rgba(244, 244, 245, 0.3);
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .carousel-dot.active {
+    background-color: rgba(244, 244, 245, 1);
+  }
+  
+  /* Responsive layout */
+  @media (min-width: 768px) {
+    .skyscan-content {
+      flex-direction: row;
+    }
+    
+    .video-container {
+      min-height: 400px;
+    }
+  }
+
+/* Stiluri de bază pentru SkyScan - curățate de duplicate */
+.sky-scan-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-height: calc(100vh - 60px);
+  background-color: #18181b;
+  margin-top: 60px; /* Adaugă spațiu pentru header */
+  padding-top: 20px; /* Spațiu suplimentar în partea de sus */
+}
+
+.sky-scan-container {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  background-color: rgba(244, 244, 245, 0.05);
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.05);
+  overflow: hidden;
+  backdrop-filter: blur(1rem);
+}
+
+/* Stiluri pentru secțiunea video */
+.sky-video-section {
+  flex: 2;
+  padding: 20px;
+  border-right: 1px solid rgba(244, 244, 245, 0.1);
+}
+
+.sky-video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%;
+  background-color: #27272a;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.02);
+}
+
+.sky-video-container .loading-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Secțiunea persoane necunoscute */
+.sky-persons-section {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sky-section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #f4f4f5;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.sky-persons-description {
+  font-size: 0.9rem;
+  color: rgba(231, 231, 238, 0.5);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Containerul carousel */
+.sky-carousel-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.sky-carousel-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.sky-carousel-nav-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: rgba(231, 231, 238, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.sky-carousel-nav-btn:hover {
+  background-color: rgba(244, 244, 245, 0.1);
+  color: #f4f4f5;
+}
+
+.sky-carousel-nav-btn:active {
+  transform: scale(0.95);
+}
+
+/* Carusel fluid cu elemente care glisează */
+.sky-carousel-item {
+  position: relative;
+  width: 100%;
+  height: 260px; /* Înălțime fixă pentru a evita probleme de layout */
+  overflow: hidden; /* Important pentru a ascunde elementele în tranziție */
+}
+
+.sky-carousel-slide-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Stiluri pentru card-ul persoanei */
+.sky-person-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: rgba(244, 244, 245, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.05);
+  backdrop-filter: blur(0.5rem);
+  transition: transform 0.4s ease-in-out;
+}
+
+/* Stiluri pentru tranziția în carusel */
+.sky-slide-current {
+  transform: translateX(0);
+}
+
+.sky-slide-exit-left {
+  transform: translateX(-100%);
+}
+
+.sky-slide-exit-right {
+  transform: translateX(100%);
+}
+
+.sky-slide-next {
+  transform: translateX(100%);
+}
+
+.sky-slide-enter-left {
+  animation: slide-from-right 0.4s ease-in-out forwards;
+}
+
+.sky-slide-prev {
+  transform: translateX(-100%);
+}
+
+.sky-slide-enter-right {
+  animation: slide-from-left 0.4s ease-in-out forwards;
+}
+
+@keyframes slide-from-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-from-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Stilizarea placeholder-ului pentru persoană */
+.sky-person-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #27272a;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.sky-person-placeholder {
+  position: relative;
+  background: linear-gradient(145deg, #333339, #3a3a43);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Cap */
+.sky-person-placeholder::before {
+  content: '';
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #4a4a52;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Corp */
+.sky-person-placeholder::after {
+  content: '';
+  position: absolute;
+  top: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 60px;
+  background-color: #4a4a52;
+  border-radius: 30px 30px 0 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.sky-person-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.sky-person-name-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(244, 244, 245, 0.1);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background-color: #27272a;
+  color: #f4f4f5;
+}
+
+.sky-control-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: rgba(244, 244, 245, 0.1);
+  color: #f4f4f5;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.05);
+  backdrop-filter: blur(0.5rem);
+}
+
+.sky-control-btn:hover {
+  background-color: rgba(244, 244, 245, 0.15);
+}
+
+.sky-control-btn:active {
+  transform: scale(0.95);
+}
+
+.sky-add-person-btn {
+  width: 100%;
+}
+
+.sky-btn-text {
+  display: inline-block;
+  letter-spacing: 0.05em;
+}
+
+.sky-carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.sky-carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(244, 244, 245, 0.2);
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.sky-carousel-dot:hover {
+  transform: scale(1.2);
+}
+
+.sky-carousel-dot.sky-active {
+  background-color: #f4f4f5;
+}
+
+/* Stiluri responsive */
+@media (max-width: 768px) {
+  .sky-scan-container {
+    flex-direction: column;
+  }
+  
+  .sky-video-section, .sky-persons-section {
+    flex: auto;
+    width: 100%;
+  }
+  
+  .sky-video-section {
+    border-right: none;
+    border-bottom: 1px solid rgba(244, 244, 245, 0.1);
+  }
+}
+
+/* ======================================
+   SkyScan Component Styles
+   ====================================== */
+
+/* Stiluri de bază pentru pagina SkyScan */
+.sky-scan-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-height: calc(100vh - 60px);
+  background-color: #18181b;
+}
+
+.sky-scan-container {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  background-color: rgba(244, 244, 245, 0.05);
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.05);
+  overflow: hidden;
+  backdrop-filter: blur(1rem);
+}
+
+/* ======================================
+   Secțiunea video - partea stângă
+   ====================================== */
+.sky-video-section {
+  flex: 2;
+  padding: 20px;
+  border-right: 1px solid rgba(244, 244, 245, 0.1);
+}
+
+.sky-video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%;
+  background-color: #27272a;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.02);
+}
+
+.sky-video-container .loading-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ======================================
+   Secțiunea persoane necunoscute - partea dreaptă
+   ====================================== */
+.sky-persons-section {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sky-section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #f4f4f5;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.sky-persons-description {
+  font-size: 0.9rem;
+  color: rgba(231, 231, 238, 0.5);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* ======================================
+   Butonul de Start/Stop scanare
+   ====================================== */
+   .sky-scan-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0 20px 0; /* margine mărită sus */
+    padding-top: 15px; /* padding suplimentar deasupra butonului */
+    position: relative;
+  }
+  
+  /* Adaugă un separator vizual deasupra butonului (opțional) */
+  .sky-scan-control::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background-color: rgba(244, 244, 245, 0.1);
+  }
+  
+  /* Stil pentru container-ul indicatorului de stream activ */
+  .sky-stream-status {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.9rem;
+  }
+  
+  .sky-stream-active {
+    color: #10b981; /* Verde care se potrivește cu tema */
+  }
+  
+  .sky-stream-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #10b981;
+    display: inline-block;
+    animation: pulse 1.5s infinite;
+  }
+
+.sky-scan-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: inset 0 0 0 1px rgba(16, 185, 129, 0.3);
+  backdrop-filter: blur(0.5rem);
+  font-size: 0.95rem;
+}
+
+.sky-scan-btn:hover {
+  background-color: rgba(16, 185, 129, 0.3);
+  box-shadow: inset 0 0 0 1px rgba(16, 185, 129, 0.4);
+}
+
+.sky-scan-btn.sky-scan-active {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  box-shadow: inset 0 0 0 1px rgba(239, 68, 68, 0.3);
+}
+
+.sky-scan-btn.sky-scan-active:hover {
+  background-color: rgba(239, 68, 68, 0.3);
+  box-shadow: inset 0 0 0 1px rgba(239, 68, 68, 0.4);
+}
+
+.sky-scan-btn .material-symbols-rounded {
+  font-size: 24px;
+}
+
+/* ======================================
+   Carusel și navigație
+   ====================================== */
+.sky-carousel-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.sky-carousel-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+/* Butoane de navigare */
+.sky-carousel-nav-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: rgba(231, 231, 238, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.sky-carousel-nav-btn:hover {
+  background-color: rgba(244, 244, 245, 0.1);
+  color: #f4f4f5;
+}
+
+.sky-carousel-nav-btn:active {
+  transform: scale(0.95);
+}
+
+/* ======================================
+   Elementele caruselului și tranziții
+   ====================================== */
+.sky-carousel-item {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  overflow: hidden;
+}
+
+.sky-carousel-slide-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Stiluri pentru cardurile persoanelor */
+.sky-person-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: rgba(244, 244, 245, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.05);
+  backdrop-filter: blur(0.5rem);
+  transition: transform 0.4s ease-in-out;
+}
+
+/* Clase pentru tranziții */
+.sky-slide-current {
+  transform: translateX(0);
+}
+
+.sky-slide-exit-left {
+  transform: translateX(-100%);
+}
+
+.sky-slide-exit-right {
+  transform: translateX(100%);
+}
+
+.sky-slide-next {
+  transform: translateX(100%);
+}
+
+.sky-slide-prev {
+  transform: translateX(-100%);
+}
+
+.sky-slide-enter-left {
+  animation: slide-from-right 0.4s ease-in-out forwards;
+}
+
+.sky-slide-enter-right {
+  animation: slide-from-left 0.4s ease-in-out forwards;
+}
+
+/* Keyframes pentru animațiile de slide */
+@keyframes slide-from-right {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slide-from-left {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+/* ======================================
+   Placeholder pentru persoană
+   ====================================== */
+.sky-person-image {
+  width: 130px;
+  height: 130px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #27272a;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.sky-person-placeholder {
+  position: relative;
+  background: linear-gradient(145deg, #333339, #3a3a43);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Cap */
+.sky-person-placeholder::before {
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #4a4a52;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Corp */
+.sky-person-placeholder::after {
+  content: '';
+  position: absolute;
+  top: 65px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 50px;
+  background-color: #4a4a52;
+  border-radius: 25px 25px 0 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ======================================
+   Formular pentru adăugare persoană
+   ====================================== */
+.sky-person-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.sky-person-name-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(244, 244, 245, 0.1);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background-color: #27272a;
+  color: #f4f4f5;
+  transition: border-color 0.2s;
+}
+
+.sky-person-name-input:focus {
+  outline: none;
+  border-color: rgba(244, 244, 245, 0.3);
+}
+
+.sky-person-name-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Buton de adăugare */
+.sky-control-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: rgba(244, 244, 245, 0.1);
+  color: #f4f4f5;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.05);
+  backdrop-filter: blur(0.5rem);
+  margin-top: 4px;
+}
+
+.sky-control-btn:hover {
+  background-color: rgba(244, 244, 245, 0.15);
+}
+
+.sky-control-btn:active {
+  transform: scale(0.95);
+}
+
+.sky-control-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.sky-add-person-btn {
+  width: 100%;
+}
+
+.sky-btn-text {
+  display: inline-block;
+  letter-spacing: 0.05em;
+}
+
+/* ======================================
+   Indicatori carusel (puncte de navigare)
+   ====================================== */
+.sky-carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.sky-carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(244, 244, 245, 0.2);
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.sky-carousel-dot:hover {
+  transform: scale(1.2);
+}
+
+.sky-carousel-dot.sky-active {
+  background-color: #f4f4f5;
+}
+
+/* ======================================
+   Responsive Design
+   ====================================== */
+@media (max-width: 768px) {
+  .sky-scan-container {
+    flex-direction: column;
+  }
+  
+  .sky-video-section, .sky-persons-section {
+    flex: auto;
+    width: 100%;
+  }
+  
+  .sky-video-section {
+    border-right: none;
+    border-bottom: 1px solid rgba(244, 244, 245, 0.1);
+  }
+  
+  /* Ajustări pentru dispozitive mobile */
+  .sky-person-image {
+    width: 120px; 
+    height: 120px;
+  }
+  
+  .sky-carousel-item {
+    height: 320px;
+  }
+}
+
+/* Pentru ecrane foarte mici */
+@media (max-width: 480px) {
+  .sky-carousel-item {
+    height: 360px;
+  }
+  
+  .sky-person-card {
+    padding: 12px;
+  }
+  
+  .sky-person-name-input,
+  .sky-control-btn {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+  
+  .sky-scan-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+  
+  .sky-scan-btn .material-symbols-rounded {
+    font-size: 20px;
+  }
+}
+
+.sky-scan-control {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 20px 0;
+}
+
+.sky-scan-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: rgba(16, 185, 129, 0.2); /* Culoare verde ușor transparent */
+  color: #10b981; /* Culoare verde pentru text */
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: inset 0 0 0 1px rgba(16, 185, 129, 0.3);
+  backdrop-filter: blur(0.5rem);
+  font-size: 0.95rem;
+}
+
+.sky-scan-btn:hover {
+  background-color: rgba(16, 185, 129, 0.3);
+  box-shadow: inset 0 0 0 1px rgba(16, 185, 129, 0.4);
+}
+
+.sky-scan-btn.sky-scan-active {
+  background-color: rgba(239, 68, 68, 0.2); /* Culoare roșie ușor transparent */
+  color: #ef4444; /* Culoare roșie pentru text */
+  box-shadow: inset 0 0 0 1px rgba(239, 68, 68, 0.3);
+}
+
+.sky-scan-btn.sky-scan-active:hover {
+  background-color: rgba(239, 68, 68, 0.3);
+  box-shadow: inset 0 0 0 1px rgba(239, 68, 68, 0.4);
+}
+
+.sky-scan-btn .material-symbols-rounded {
+  font-size: 24px;
+}
+
+/* Ajustări pentru responsive */
+@media (max-width: 480px) {
+  .sky-scan-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+  
+  .sky-scan-btn .material-symbols-rounded {
+    font-size: 20px;
+  }
+}
+.sky-scan-btn.sky-scan-loading {
+  opacity: 0.8;
+  cursor: wait;
+  background-color: rgba(107, 114, 128, 0.2);
+  color: #9ca3af;
+  box-shadow: inset 0 0 0 1px rgba(107, 114, 128, 0.3);
+}
+
+.sky-scan-btn.sky-scan-loading .material-symbols-rounded {
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Stilul pentru mesajul de eroare */
+.sky-scan-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  width: 100%;
+  text-align: center;
+}
+
+.sky-scan-error .material-symbols-rounded {
+  font-size: 18px;
+}
+
+/* Stiluri pentru containerul și stream-ul video */
+
+.sky-video-iframe-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.sky-video-stream {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Menține raportul de aspect al imaginii */
+}
+
+/* Animație pentru încărcarea fluxului video */
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.sky-video-loading {
+  animation: pulse 1.5s infinite;
+}
+
+.sky-video-reconnecting {
+  animation: pulse 1.5s infinite;
+}
+
+.sky-video-stream {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.sky-video-initializing {
+  opacity: 0.6;
+}
+
+.sky-video-reconnecting {
+  animation: reconnect-pulse 1.5s infinite;
+}
+
+@keyframes reconnect-pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 0.9; }
+  100% { opacity: 0.5; }
+}
+
+/* Overlay îmbunătățit pentru inițializare */
+.sky-initializing-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #f4f4f5;
+  z-index: 10;
+  text-align: center;
+}
+
+.sky-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(244, 244, 245, 0.3);
+  border-radius: 50%;
+  border-top-color: #f4f4f5;
+  animation: spinner-rotate 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spinner-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Badge pentru detecția facială */
+.sky-tracking-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sky-tracking-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10b981;
+  animation: dot-pulse 1.5s infinite;
+}
+
+@keyframes dot-pulse {
+  0% { opacity: 0.6; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 0.6; transform: scale(0.9); }
+}
+
+/* Buton pentru reîncărcarea streamului */
+.sky-stream-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.sky-reload-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: inset 0 0 0 1px rgba(59, 130, 246, 0.3);
+  backdrop-filter: blur(0.5rem);
+  font-size: 0.9rem;
+}
+
+.sky-reload-btn:hover {
+  background-color: rgba(59, 130, 246, 0.3);
+  box-shadow: inset 0 0 0 1px rgba(59, 130, 246, 0.4);
+}
+
+.sky-reload-btn .material-symbols-rounded {
+  font-size: 18px;
+}
+
+/* Îmbunătățiri pentru animațiile caruselului */
+.sky-slide-enter-left {
+  animation: slide-from-right 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.sky-slide-enter-right {
+  animation: slide-from-left 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Stilul de afișare a erorilor */
+.sky-scan-error {
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  word-break: break-word;
+  animation: fade-in 0.3s ease-in-out;
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; transform: translateY(-5px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Optimizări pentru dispozitive mobile */
+@media (max-width: 768px) {
+  .sky-scan-container {
+    flex-direction: column;
+  }
+  
+  .sky-video-section {
+    margin-bottom: 20px;
+  }
+  
+  .sky-tracking-badge {
+    top: 10px;
+    right: 10px;
+    padding: 4px 10px;
+    font-size: 0.7rem;
+  }
+  
+  .sky-tracking-dot {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .sky-loading-spinner {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .sky-carousel-item {
+    height: 320px; /* Ajustare pentru ecrane mai mici */
+  }
+}
+
+/* Performanță îmbunătățită pentru dispozitive mobile */
+@media (max-width: 480px) {
+  .sky-video-container {
+    padding-bottom: 70%; /* Aspect ratio modificat pentru dispozitive mici */
+  }
+  
+  .sky-carousel-item {
+    height: 300px;
+  }
+  
+  .sky-btn-text {
+    font-size: 0.85rem;
+  }
+  
+  .sky-scan-btn {
+    padding: 8px 16px;
+  }
+}
+
+
+.stream-active-indicator {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #4caf50;
+}
+
+.stream-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #4caf50;
+  display: inline-block;
+  margin-right: 6px;
+  animation: pulse 1.5s infinite;
+}
+
+.reconnecting {
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.control-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.loading .material-symbols-rounded {
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 0.6; transform: scale(0.9); }
+}
+
+.sky-scan-btn.sky-scan-initializing {
+  background: rgba(234, 179, 8, 0.2);
+  border-color: rgba(234, 179, 8, 0.3);
+  color: #f4f4f5;
+}
+
+.sky-scan-btn.sky-scan-initializing:hover {
+  background: rgba(234, 179, 8, 0.25);
+}
+
+.sky-spin-icon {
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.sky-landing-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  color: white;
+  text-align: center;
+}
+
+.sky-landing-overlay p {
+  margin: 8px 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.sky-landing-overlay .sky-loading-spinner {
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 5px solid #fff;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Pentru a stiliza butonul în starea de aterizare */
+.sky-scan-btn.sky-scan-landing {
+  background-color: #ff9800;
+  border-color: #e68a00;
+}
+
+.sky-scan-btn.sky-scan-landing:hover {
+  background-color: #e68a00;
+}
+
+/* Stilul pentru mesajul de aterizare */
+.sky-landing-status {
+  display: flex;
+  align-items: center;
+  background-color: #ff9800;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.sky-landing-indicator {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  margin-right: 8px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+.sky-distances-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  padding: 8px;
+  background-color: rgba(24, 24, 27, 0.7); /* bg-zinc-900 cu transparență */
+  border-radius: 8px;
+  z-index: 5;
+  color: #f4f4f5; /* text-zinc-50 */
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.05); /* ring-inset ring-1 ring-zinc-50/5 */
+  backdrop-filter: blur(4px);
+}
+
+.sky-distances-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sky-distance-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.sky-distance-direction {
+  font-weight: 500;
+  color: rgba(231, 231, 238, 0.8); /* text-zinc-50/80 */
+}
+
+.sky-distance-value {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* Menține culorile roșu și albastru pentru valori */
+.sky-distance-item:first-child .sky-distance-value {
+  color: #ef4444; /* roșu pentru stânga */
+}
+
+.sky-distance-item:last-child .sky-distance-value {
+  color: #3b82f6; /* albastru pentru dreapta */
+}
+
+.sky-angle-value {
+  font-size: 12px;
+  color: rgba(231, 231, 238, 0.5); /* text-zinc-50/50 */
+}
+
+/* Panou separat pentru distanțe sub video */
+.sky-distances-panel {
+  margin-top: 15px;
+  padding: 12px 15px;
+  background-color: rgba(244, 244, 245, 0.1); /* bg-zinc-50/10 */
+  border-radius: 12px; /* rounded-2xl */
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.05); /* ring-inset ring-1 ring-zinc-50/5 */
+  backdrop-filter: blur(4px);
+}
+
+.sky-distances-panel h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #f4f4f5; /* text-zinc-50 */
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: 0.05em; /* tracking-wide */
+}
+
+.sky-distance-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.sky-distance-detail, .sky-angle-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background-color: rgba(24, 24, 27, 0.6); /* bg-zinc-900 cu transparență */
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.02); /* ring-inset ring-1 ring-zinc-50/2 */
+}
+
+.sky-detail-label {
+  font-weight: 500;
+  font-size: 14px;
+  color: rgba(231, 231, 238, 0.7); /* text-zinc-50/70 */
+}
+
+.sky-detail-value {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* Menține culorile roșu și albastru pentru valori */
+.sky-distance-detail:first-child .sky-detail-value,
+.sky-angle-details:first-child .sky-detail-value {
+  color: #ef4444; /* roșu pentru stânga */
+}
+
+.sky-distance-detail:nth-child(2) .sky-detail-value,
+.sky-angle-details:nth-child(2) .sky-detail-value {
+  color: #3b82f6; /* albastru pentru dreapta */
+}
+
+/* Stilizare responsivă pentru ecrane mici */
+@media (max-width: 768px) {
+  .sky-distances-panel {
+    padding: 8px;
+  }
+  
+  .sky-distance-details {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animație pentru overlay când apar distanțele noi */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sky-distances-overlay {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* CSS pentru a rezolva suprapunerea cu header-ul și a îmbunătăți butonul de oprire */
+
+/* Ajustarea marjei superioare a containerului principal */
+.sky-scan-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-height: calc(100vh - 60px);
+  background-color: #18181b;
+  margin-top: 60px; /* Adaugă spațiu pentru header */
+  padding-top: 20px; /* Spațiu suplimentar în partea de sus */
+}
+
+/* Asigurăm-ne că butonul de oprire este întotdeauna vizibil și accesibil */
+.sky-scan-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+  font-weight: 500;
+  cursor: pointer !important; /* Forțăm cursorul pointer indiferent de stare */
+  transition: all 0.2s ease;
+  box-shadow: inset 0 0 0 1px rgba(16, 185, 129, 0.3);
+  backdrop-filter: blur(0.5rem);
+  font-size: 0.95rem;
+  min-width: 160px; /* Lățime minimă pentru buton */
+  position: relative; /* Pentru a asigura că este deasupra altor elemente */
+  z-index: 10; /* Asigurăm că este deasupra altor elemente */
+  opacity: 1 !important; /* Forțăm opacitatea să fie mereu 1 */
+}
+
+/* Stiluri pentru butonul activ (oprire) - asigurăm-ne că este distinct */
+.sky-scan-btn.sky-scan-active {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  box-shadow: inset 0 0 0 1px rgba(239, 68, 68, 0.3);
+}
+
+/* Eliminăm orice stilizare care ar putea dezactiva butonul */
+.sky-scan-btn:disabled {
+  opacity: 0.9 !important; /* Reducem puțin opacitatea când e dezactivat, dar nu prea mult */
+  cursor: pointer !important; /* Menținem cursorul pointer chiar și când e dezactivat */
+}
+
+/* Stilul pentru starea de încărcare - să nu interfereze cu funcționalitatea */
+.sky-scan-btn.sky-scan-loading {
+  opacity: 0.9;
+  cursor: pointer !important;
+}
+
+/* Asigurăm-ne că containerul pentru distanțe nu se suprapune cu alte elemente */
+.sky-distances-panel {
+  margin-top: 15px;
+  margin-bottom: 15px; /* Adăugăm spațiu sub panel */
+  padding: 12px 15px;
+  background-color: rgba(244, 244, 245, 0.1);
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.05);
+  backdrop-filter: blur(4px);
+  z-index: 5; /* Asigurăm-ne că este vizibil */
+}
+
+/* Optimizări pentru afișarea pe dispozitive mobile */
+@media (max-width: 768px) {
+  .sky-scan-page {
+    margin-top: 50px; /* Reducerea marjei pe dispozitive mici */
+    padding-top: 10px;
+  }
+  
+  .sky-scan-container {
+    flex-direction: column;
+    max-height: calc(100vh - 70px); /* Limitarea înălțimii pentru a fi siguri că totul încape */
+    overflow-y: auto; /* Adăugăm scroll vertical dacă e necesar */
+  }
+  
+  .sky-right-section {
+    padding-bottom: 20px; /* Spațiu la final */
+  }
+  
+  /* Reducem înălțimea containerului video pentru a face mai mult loc */
+  .sky-video-container {
+    padding-bottom: 65%; /* Reducere de la 75% */
+  }
+}
+
+@media (max-width: 480px) {
+  .sky-scan-page {
+    padding: 10px;
+    margin-top: 40px;
+  }
+  
+  .sky-video-container {
+    padding-bottom: 60%;
+  }
+  
+  .sky-distances-panel {
+    padding: 8px;
+  }
+  
+  .sky-distance-details {
+    gap: 8px;
+  }
+}

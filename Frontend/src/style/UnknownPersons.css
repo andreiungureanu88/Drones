@@ -1,0 +1,300 @@
+.sky-persons-section {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.sky-section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #f4f4f5;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.sky-persons-description {
+  font-size: 0.9rem;
+  color: rgba(231, 231, 238, 0.5);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* ===== UNKNOWN FACES LIST ===== */
+.sky-unknown-faces-list {
+  margin-bottom: 20px;
+  background-color: rgba(39, 39, 42, 0.5);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.05);
+}
+
+.sky-unknown-faces-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #f4f4f5;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.sky-unknown-faces-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.sky-unknown-face-item {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(39, 39, 42, 0.7);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.sky-unknown-face-item:hover {
+  transform: translateY(-2px);
+}
+
+.sky-unknown-face-image {
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  position: relative;
+}
+
+.sky-unknown-face-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px 4px 0 0;
+}
+
+.sky-unknown-face-actions {
+  display: flex;
+  justify-content: space-around;
+  padding: 8px;
+  background-color: rgba(39, 39, 42, 0.9);
+}
+
+.sky-unknown-face-actions .sky-control-btn {
+  padding: 6px;
+  flex: 1;
+  margin: 0 2px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+}
+
+.sky-unknown-face-actions .sky-control-btn .material-symbols-rounded {
+  font-size: 18px;
+}
+
+.sky-unknown-face-actions .sky-btn-text {
+  display: none;
+}
+
+.sky-unknown-face-actions .sky-add-btn {
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+
+.sky-unknown-face-actions .sky-add-btn:hover {
+  background-color: rgba(16, 185, 129, 0.3);
+}
+
+.sky-unknown-face-actions .sky-delete-btn {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+.sky-unknown-face-actions .sky-delete-btn:hover {
+  background-color: rgba(239, 68, 68, 0.3);
+}
+
+.sky-unknown-faces-empty {
+  text-align: center;
+  padding: 20px;
+  color: rgba(231, 231, 238, 0.5);
+  font-style: italic;
+  background-color: rgba(39, 39, 42, 0.3);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* ===== ADD PERSON FORM ===== */
+.sky-unknown-face-add {
+  background-color: rgba(39, 39, 42, 0.5);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(244, 244, 245, 0.1);
+  animation: fade-in 0.3s ease-in-out;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sky-unknown-face-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #f4f4f5;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.sky-unknown-face-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sky-unknown-face-add .sky-unknown-face-image {
+  width: 180px;
+  height: 180px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sky-unknown-face-add .sky-unknown-face-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sky-unknown-face-form {
+  width: 100%;
+  max-width: 320px;
+}
+
+.sky-person-name-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(244, 244, 245, 0.1);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background-color: #27272a;
+  color: #f4f4f5;
+  margin-bottom: 12px;
+  transition: border-color 0.2s;
+}
+
+.sky-person-name-input:focus {
+  outline: none;
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+.sky-add-person-error {
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+  background-color: rgba(239, 68, 68, 0.1);
+  padding: 8px 12px;
+  border-radius: 4px;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.sky-unknown-face-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.sky-unknown-face-buttons .sky-control-btn {
+  flex: 1;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.sky-unknown-face-buttons .sky-cancel-btn {
+  background-color: rgba(107, 114, 128, 0.2);
+  color: #d1d5db;
+}
+
+.sky-unknown-face-buttons .sky-cancel-btn:hover {
+  background-color: rgba(107, 114, 128, 0.3);
+}
+
+.sky-unknown-face-buttons .sky-add-person-btn {
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+
+.sky-unknown-face-buttons .sky-add-person-btn:hover {
+  background-color: rgba(16, 185, 129, 0.3);
+}
+
+.sky-unknown-face-buttons .sky-control-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sky-control-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: rgba(244, 244, 245, 0.1);
+  color: #f4f4f5;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.05);
+  backdrop-filter: blur(0.5rem);
+}
+
+.sky-control-btn:hover {
+  background-color: rgba(244, 244, 245, 0.15);
+}
+
+.sky-control-btn:active {
+  transform: scale(0.95);
+}
+
+.sky-btn-text {
+  display: inline-block;
+  letter-spacing: 0.05em;
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+  .sky-unknown-face-content {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .sky-unknown-face-image {
+    margin-bottom: 0;
+  }
+  
+  .sky-unknown-faces-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .sky-unknown-faces-grid {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  }
+  
+  .sky-unknown-face-add .sky-unknown-face-image {
+    width: 140px;
+    height: 140px;
+  }
+}

@@ -1,0 +1,180 @@
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #000000; /* Fundal negru */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Stilul de animație pentru drone loader */
+.drone-loader {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 20px;
+}
+
+.drone-body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 20px;
+  background-color: #3b82f6; /* blue-500 */
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.7);
+  z-index: 10;
+}
+
+/* Am eliminat .drone-light, care conținea punctul verde care clipește */
+
+.propeller {
+  position: absolute;
+  width: 30px;
+  height: 5px;
+  background-color: rgba(244, 244, 245, 0.7); /* text-zinc-50/70 */
+  border-radius: 3px;
+  transform-origin: center;
+  animation: rotate 0.5s infinite linear;
+}
+
+.propeller::before,
+.propeller::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 30px;
+  height: 5px;
+  background-color: rgba(244, 244, 245, 0.7); /* text-zinc-50/70 */
+  border-radius: 3px;
+  transform-origin: center;
+}
+
+.propeller::before {
+  transform: rotate(45deg);
+}
+
+.propeller::after {
+  transform: rotate(-45deg);
+}
+
+.propeller-1 {
+  top: 30px;
+  left: 20px;
+}
+
+.propeller-2 {
+  top: 30px;
+  right: 20px;
+}
+
+.propeller-3 {
+  bottom: 30px;
+  left: 20px;
+}
+
+.propeller-4 {
+  bottom: 30px;
+  right: 20px;
+}
+
+.drone-shadow {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  filter: blur(5px);
+  animation: shadow-pulse 2s infinite alternate ease-in-out;
+}
+
+.loading-message {
+  color: #f4f4f5; /* text-zinc-50 */
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  opacity: 0.8;
+  margin: 0;
+  letter-spacing: 0.5px;
+  animation: fadeInOut 2s infinite alternate;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Am eliminat animația @keyframes blink, deoarece nu mai este folosită */
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes shadow-pulse {
+  0% {
+    width: 40px;
+    opacity: 0.3;
+  }
+  100% {
+    width: 60px;
+    opacity: 0.5;
+  }
+}
+
+/* Animație de levitație pentru dronă */
+.drone-loader {
+  animation: hover 2s infinite alternate ease-in-out;
+}
+
+@keyframes hover {
+  0% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Animație de fade-in pentru întregul container */
+.loading-container {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

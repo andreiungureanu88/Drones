@@ -1,0 +1,178 @@
+.sky-face-detection-band {
+    background-color: rgba(50, 50, 50, 0.9);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 0 0 8px 8px;
+    margin-top: -8px;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .sky-face-band-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40px;
+  }
+  
+  .sky-face-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  .sky-face-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(70, 70, 70, 0.8);
+    padding: 5px 10px;
+    border-radius: 4px;
+    min-width: 80px;
+  }
+  
+  .sky-face-name {
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .sky-face-confidence {
+    font-size: 12px;
+    color: #aaa;
+  }
+  
+  .sky-face-placeholder {
+    font-style: italic;
+    color: #aaa;
+  }
+
+  .sky-face-detection-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  
+  /* Buton de reset pentru istoric */
+  .sky-reset-faces-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(50, 50, 50, 0.7);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+    z-index: 20;
+  }
+  
+  .sky-reset-faces-btn:hover {
+    opacity: 1;
+    background-color: rgba(244, 67, 54, 0.7);
+  }
+  
+  .sky-reset-faces-btn .material-symbols-rounded {
+    font-size: 16px;
+  }
+  
+  /* Stilizare pentru fețele istorice vs. active */
+  .sky-face-detection-band {
+    position: relative;
+    padding-right: 30px; /* Space for reset button */
+  }
+  
+  /* Stilizare pentru titlul benzii */
+  .sky-face-band-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+    margin-bottom: 5px;
+  }
+  
+  .sky-face-band-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #aaa;
+    letter-spacing: 0.5px;
+  }
+  
+  .sky-face-count-badge {
+    background-color: rgba(76, 175, 80, 0.9);
+    color: white;
+    border-radius: 12px;
+    padding: 1px 6px;
+    font-size: 10px;
+    font-weight: bold;
+  }
+  
+  /* Stiluri pentru afișarea fețelor */
+  .sky-face-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 8px;
+  }
+  
+  .sky-face-item {
+    position: relative;
+    background-color: rgba(70, 70, 70, 0.8);
+    padding: 6px 10px;
+    border-radius: 4px;
+    min-width: 80px;
+    transition: all 0.2s ease;
+  }
+  
+  .sky-face-active {
+    background-color: rgba(60, 60, 60, 0.9);
+    border-left: 3px solid #4CAF50;
+  }
+  
+  .sky-face-inactive {
+    background-color: rgba(80, 80, 80, 0.6);
+    border-left: 3px solid #9E9E9E;
+    opacity: 0.8;
+  }
+  
+  .sky-face-name {
+    font-size: 13px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
+    display: block;
+    text-align: center;
+  }
+  
+  .sky-face-confidence {
+    font-size: 11px;
+    color: #bbb;
+    text-align: center;
+    display: block;
+  }
+  
+  /* Animație pentru fețe nou detectate */
+  @keyframes pulse-highlight {
+    0% {
+      box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(76, 175, 80, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+    }
+  }
+  
+  .sky-face-new {
+    animation: pulse-highlight 2s ease-out;
+  }

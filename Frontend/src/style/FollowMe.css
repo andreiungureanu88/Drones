@@ -1,0 +1,1000 @@
+.follow-me-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.video-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .video-section {
+    flex-direction: row;
+  }
+  
+  .video-container {
+    flex: 2;
+  }
+  
+  .drone-controls {
+    flex: 1;
+  }
+}
+
+.video-container {
+  position: relative;
+  background-color: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-stream {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.loading-message, .error-message {
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.error-message {
+  color: #ff6b6b;
+}
+
+.drone-controls {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.control-btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.control-btn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.control-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.takeoff-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.land-btn {
+  background-color: #ff9800;
+  color: white;
+}
+
+.start-tracking-btn {
+  background-color: #2196f3;
+  color: white;
+}
+
+.stop-tracking-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.refresh-btn {
+  background-color: #607d8b;
+  color: white;
+}
+
+.drone-stats {
+  margin-top: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.drone-stats ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.drone-stats li {
+  flex: 1;
+  min-width: 150px;
+  background-color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Stiluri pentru componenta FollowMe simplificată */
+
+.face-tracker-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #121212;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.app-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #f0f0f0;
+  text-align: center;
+}
+
+.content-container {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+/* Secțiunea de start */
+.start-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  width: 100%;
+  height: 400px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+.start-button {
+  padding: 1.5rem 5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: #00a8e8;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0, 168, 232, 0.3);
+}
+
+.start-button:hover {
+  background-color: #0095d0;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 20px rgba(0, 168, 232, 0.4);
+}
+
+.start-button:active {
+  transform: translateY(0);
+}
+
+/* Secțiunea video */
+.video-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%; /* Aspect ratio 4:3 */
+  background-color: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.video-stream {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Asigură că întreaga imagine este afișată fără a fi tăiată */
+}
+
+.tracking-indicator {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 8px 16px;
+  background-color: rgba(46, 204, 113, 0.7);
+  color: white;
+  border-radius: 20px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.tracking-indicator::before {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background-color: #2ecc71;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(46, 204, 113, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(46, 204, 113, 0);
+  }
+}
+
+/* Mesaj de eroare */
+.error-message {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: rgba(231, 76, 60, 0.7);
+  color: white;
+  border-radius: 4px;
+  text-align: center;
+  max-width: 90%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app-title {
+    font-size: 2rem;
+  }
+  
+  .start-button {
+    padding: 1.2rem 4rem;
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-title {
+    font-size: 1.8rem;
+  }
+  
+  .start-button {
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+  }
+}
+
+/* Stiluri pentru componenta FollowMe simplificată cu un singur buton */
+
+.simple-tracker-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #121212;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.app-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #f0f0f0;
+  text-align: center;
+}
+
+.content-area {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+/* Zona de start */
+.start-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  width: 100%;
+  height: 400px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+.start-button {
+  padding: 1.5rem 5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: #00a8e8;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0, 168, 232, 0.3);
+}
+
+.start-button:hover {
+  background-color: #0095d0;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 20px rgba(0, 168, 232, 0.4);
+}
+
+.start-button:active {
+  transform: translateY(0);
+}
+
+/* Zona video */
+.video-area {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%; /* Aspect ratio 4:3 */
+  background-color: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.video-stream {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Asigură că întreaga imagine este afișată fără a fi tăiată */
+}
+
+.tracking-indicator {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 8px 16px;
+  background-color: rgba(46, 204, 113, 0.7);
+  color: white;
+  border-radius: 20px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.tracking-indicator::before {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background-color: #2ecc71;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(46, 204, 113, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(46, 204, 113, 0);
+  }
+}
+
+/* Mesaj de eroare */
+.error-message {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: rgba(231, 76, 60, 0.7);
+  color: white;
+  border-radius: 4px;
+  text-align: center;
+  max-width: 90%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app-title {
+    font-size: 2rem;
+  }
+  
+  .start-button {
+    padding: 1.2rem 4rem;
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-title {
+    font-size: 1.8rem;
+  }
+  
+  .start-button {
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+  }
+}
+
+/* Stilizare pentru componenta FollowMe - adaptat la stilul site-ului */
+
+.follow-me-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.follow-me-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  width: 100%;
+  gap: 1.5rem;
+  background-color: rgba(24, 24, 27, 0.6); /* bg-zinc-900 cu transparență */
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+/* Layout pentru ecrane mai mari */
+@media (min-width: 768px) {
+  .follow-me-container {
+    flex-direction: row;
+    padding: 2rem;
+  }
+}
+
+/* Secțiunea video */
+.video-section {
+  flex: 2;
+  max-width: 100%;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  background-color: #000000;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.1);
+}
+
+.video-stream {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Placeholder când video-ul e inactiv */
+.empty-video-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #18181b; /* bg-zinc-900 */
+  color: rgba(244, 244, 245, 0.5); /* text-zinc-50/50 */
+}
+
+.placeholder-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+
+/* Video overlay */
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  padding: 1rem;
+}
+
+.tracking-badge {
+  display: inline-flex;
+  align-items: center;
+  background-color: rgba(42, 199, 94, 0.2); /* Verde cu transparență */
+  color: #4ade80; /* Verde luminos */
+  padding: 0.5rem 0.75rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.tracking-dot {
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+  background-color: #4ade80;
+  margin-right: 0.5rem;
+  position: relative;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(74, 222, 128, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+  }
+}
+
+/* Secțiunea de control */
+.control-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: rgba(244, 244, 245, 0.03); /* bg-zinc-50/3 */
+  border-radius: 0.75rem;
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.05); /* ring-inset ring-1 ring-zinc-50/5 */
+  gap: 1.25rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  margin: 0;
+  color: #f4f4f5; /* text-zinc-50 */
+}
+
+.control-description {
+  font-size: 0.9375rem;
+  color: rgba(244, 244, 245, 0.7); /* text-zinc-50/70 */
+  margin: 0;
+}
+
+/* Grid pentru butoanele de control */
+.controls-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 991px) {
+  .controls-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .controls-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Butoane de control */
+.control-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.75rem;
+  background-color: rgba(244, 244, 245, 0.1); /* bg-zinc-50/10 */
+  color: #f4f4f5; /* text-zinc-50 */
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, 0.02); /* ring-inset ring-1 ring-zinc-50/2 */
+}
+
+.control-btn:hover:not(:disabled) {
+  background-color: rgba(244, 244, 245, 0.15); /* hover:bg-zinc-50/15 */
+  transform: translateY(-2px);
+}
+
+.control-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.control-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.control-btn .material-symbols-rounded {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.btn-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Stiluri specifice pentru butoane */
+.start-btn {
+  background-color: rgba(37, 99, 235, 0.2); /* bg-blue-600/20 */
+  color: #60a5fa; /* text-blue-400 */
+}
+
+.start-btn:hover:not(:disabled) {
+  background-color: rgba(37, 99, 235, 0.3); /* bg-blue-600/30 */
+}
+
+.photo-btn {
+  background-color: rgba(124, 58, 237, 0.2); /* bg-violet-600/20 */
+  color: #a78bfa; /* text-violet-400 */
+}
+
+.photo-btn:hover:not(:disabled) {
+  background-color: rgba(124, 58, 237, 0.3); /* bg-violet-600/30 */
+}
+
+.record-btn {
+  background-color: rgba(220, 38, 38, 0.2); /* bg-red-600/20 */
+  color: #f87171; /* text-red-400 */
+}
+
+.record-btn:hover:not(:disabled) {
+  background-color: rgba(220, 38, 38, 0.3); /* bg-red-600/30 */
+}
+
+.land-btn {
+  background-color: rgba(245, 158, 11, 0.2); /* bg-amber-500/20 */
+  color: #fbbf24; /* text-amber-400 */
+}
+
+.land-btn:hover:not(:disabled) {
+  background-color: rgba(245, 158, 11, 0.3); /* bg-amber-500/30 */
+}
+
+/* Mesaj de eroare */
+.error-message {
+  padding: 0.75rem;
+  background-color: rgba(239, 68, 68, 0.15); /* bg-red-500/15 */
+  color: #fca5a5; /* text-red-300 */
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  border: 1px solid rgba(239, 68, 68, 0.3); /* border-red-500/30 */
+}
+
+/* Indicator de status */
+.status-section {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(244, 244, 245, 0.05); /* border-zinc-50/5 */
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-dot {
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+}
+
+.status-dot.active {
+  background-color: #4ade80; /* bg-green-400 */
+  box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.3); /* ring-2 ring-green-400/30 */
+}
+
+.status-dot.inactive {
+  background-color: #94a3b8; /* bg-slate-400 */
+  box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.3); /* ring-2 ring-slate-400/30 */
+}
+
+.status-text {
+  font-size: 0.875rem;
+  color: rgba(244, 244, 245, 0.8); /* text-zinc-50/80 */
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Aplicăm animația pe iconița de încărcare */
+.material-symbols-rounded.loading {
+  animation: spin 1.5s linear infinite;
+}
+
+/* Îmbunătățim stilurile pentru butonul de aterizare */
+.land-btn {
+  background-color: rgba(245, 158, 11, 0.2); /* bg-amber-500/20 */
+  color: #fbbf24; /* text-amber-400 */
+  position: relative;
+  overflow: hidden;
+}
+
+.land-btn:hover:not(:disabled) {
+  background-color: rgba(245, 158, 11, 0.3); /* bg-amber-500/30 */
+}
+
+.land-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Indicator visual pentru starea de loading */
+.land-btn:disabled.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: inherit;
+}
+
+/* Ajustăm spațiul vertical pentru textul de eroare */
+.error-message {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+
+/* Stiluri pentru animația de succes la salvarea fotografiei */
+.success-anim {
+  color: #4ade80 !important; /* text-green-400 */
+  animation: pulse-success 1.5s ease;
+}
+
+@keyframes pulse-success {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  75% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Stiluri specifice pentru butonul foto în starea de succes */
+.photo-btn.success .btn-text {
+  color: #4ade80; /* text-green-400 */
+}
+
+.recording-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: rgba(239, 68, 68, 0.7); /* Roșu semi-transparent */
+  color: white;
+  border-radius: 4px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.recording-indicator {
+  width: 10px;
+  height: 10px;
+  background-color: rgb(239, 68, 68); /* Roșu */
+  border-radius: 50%;
+  margin-right: 8px;
+  animation: blink 1s infinite alternate;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+/* Stiluri pentru butonul de înregistrare când este activ */
+.record-btn.recording {
+  background-color: rgba(239, 68, 68, 0.15); /* Fundal roșu transparent */
+  border-color: rgb(239, 68, 68); /* Bordură roșie */
+  color: rgb(239, 68, 68); /* Text roșu */
+}
+
+/* Animație pentru indicatorul de înregistrare */
+.pulse-recording {
+  color: rgb(239, 68, 68) !important; /* Roșu pentru iconul de înregistrare */
+  animation: pulse-rec 1.5s infinite;
+}
+
+@keyframes pulse-rec {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Stiluri pentru indicatorul de baterie */
+.battery-section {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.battery-indicator {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.battery-icon {
+  font-size: 24px;
+}
+
+.battery-bar-container {
+  flex: 1;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.battery-bar {
+  height: 100%;
+  transition: width 0.5s ease;
+}
+
+.battery-bar.good {
+  background-color: #4ade80; /* Verde pentru nivel bun */
+}
+
+.battery-bar.warning {
+  background-color: #fcd34d; /* Galben pentru nivel mediu */
+}
+
+.battery-bar.critical {
+  background-color: #ef4444; /* Roșu pentru nivel critic */
+}
+
+.battery-text {
+  font-weight: 500;
+  font-size: 14px;
+  min-width: 40px;
+}
+
+/* Stiluri pentru indicatorul de înregistrare */
+.recording-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: rgba(239, 68, 68, 0.7); /* Roșu semi-transparent */
+  color: white;
+  border-radius: 4px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.recording-indicator {
+  width: 10px;
+  height: 10px;
+  background-color: rgb(239, 68, 68); /* Roșu */
+  border-radius: 50%;
+  margin-right: 8px;
+  animation: blink 1s infinite alternate;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+/* Stiluri pentru butonul de înregistrare când este activ */
+.record-btn.recording {
+  background-color: rgba(239, 68, 68, 0.15); /* Fundal roșu transparent */
+  border-color: rgb(239, 68, 68); /* Bordură roșie */
+  color: rgb(239, 68, 68); /* Text roșu */
+}
+
+/* Animație pentru indicatorul de înregistrare */
+.pulse-recording {
+  color: rgb(239, 68, 68) !important; /* Roșu pentru iconul de înregistrare */
+  animation: pulse-rec 1.5s infinite;
+}
+
+@keyframes pulse-rec {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Stiluri pentru starea bateriei când drona nu este conectată */
+.battery-icon.loading-icon {
+  animation: spin 2s linear infinite;
+  opacity: 0.7;
+}
+
+.battery-icon.disabled-icon {
+  opacity: 0.5;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.status-text {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
